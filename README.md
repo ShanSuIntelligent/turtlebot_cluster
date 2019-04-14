@@ -48,21 +48,13 @@ Turtlebot+UWB 集群控制软件包
     ros wiki : http://wiki.ros.org/turtlebot/Tutorials/indigo
     turtlebot : https://www.turtlebot.com/
     
-3. __UWB编辑路径导航Demo__
+3. __UWB路径导航Demo__
   
   * __Turtlebot__
     
-    * $ `cd ~/ros_ws`
-    * $ `catkin_make`
-    * $ `source devel/setup.bash`
-    * $ `roslaunch turtlebot_bringup minimal.launch`
     * $ `roslaunch yikun_navigation navigation.launch`
 
   * __上位机__
     
-    * $ `cd ~/ros_ws`
-    * $ `catkin_make`
-    * $ `source devel/setup.bash`
-    * $ `rosrun yikun_common uwb_node`
-    * $ `roslaunch yikun_common common.launch`
+    * $ `roslaunch yikun_common rpc.launch`
   
