@@ -1,0 +1,12 @@
+<launch>
+
+  <include file="$(find rosbridge_server)launch/rosbridge_websocket.launch"/>
+
+  <node pkg="yikun_common" type="robot_info_sync" name="RobotInfo" output="screen">
+  </node>
+  <node pkg="yikun_common" type="path_sync" name="PathInfo" output="screen">
+  </node>
+  <node pkg="yikun_common" type="rpc.py" name="Rpc" output="screen">
+  </node>
+
+</launch>

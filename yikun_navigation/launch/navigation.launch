@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+  <!--turtlebot-->
+<!--  <include file="$(find turtlebot_bringup)/launch/minimal.launch"/>-->
+
+  <!--uwb-->
+  <!--<node pkg="yikun_common" type="uwb.py" name="Uwb" output="screen">
+  </node>-->
+
+  <!--服务节点-->
+  <node pkg="yikun_common" type="service_node" name="Service" output="screen">
+    <param name="addr" value="0.0.0.0"/>
+    <param name="timesec" value="60"/>
+    <param name="global_frame_id" value="map"/>
+    <param name="base_frame_id" value="base_footprint"/>
+    <param name="sensor_frame_id" value="base_footprint"/>
+  </node>
+
+  <!--路径跟随-->
+  <node pkg="yikun_navigation" type="planner_node" name="Planner" output="screen">
+    <param name="global_frame_id" value="map"/>
+    <param name="odom_frame_id" value="odom"/>
+    <param name="base_frame_id" value="base_footprint"/>
+    <param name="max_vel_lin" value="0.25"/>
+    <param name="max_vel_th" value="0.5"/>
+    <remap from="/cmd_vel" to="/cmd_vel"/><!--/cmd_vel_mux/input/navi-->
+  </node>
+  <!--diagnostics-->
+  <node pkg="yikun_common" type="diagnostics" name="Diagnostics" output="screen">
+  </node>
+
+</launch>
